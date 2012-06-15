@@ -72,7 +72,7 @@ class rc_factory(object):
 
             content = property(HttpResponse._get_content, _set_content)
 
-        return HttpResponseWrapper(r, content_type='text/plain', status=c)
+        return HttpResponseWrapper("", content_type='text/plain', status=c)
 
 rc = rc_factory()
 
