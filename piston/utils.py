@@ -64,9 +64,11 @@ class rc_factory(object):
                 if not isinstance(content, basestring) and hasattr(content, '__iter__'):
                     self._container = content
                     self._is_string = False
+                    self._base_content_is_iter = True
                 else:
                     self._container = [content]
                     self._is_string = True
+                    self._base_content_is_iter = False
 
             content = property(HttpResponse._get_content, _set_content)
 
