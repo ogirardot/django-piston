@@ -31,7 +31,6 @@ from django.http import HttpResponse
 from django.core import serializers
 
 from utils import HttpStatusCode, Mimer
-from XMLtoDict import XMLtoDict
 from validate_jsonp import is_valid_jsonp_callback_value
 
 try:
@@ -378,7 +377,7 @@ class XMLEmitter(Emitter):
         return stream.getvalue()
 
 Emitter.register('xml', XMLEmitter, 'text/xml; charset=utf-8')
-Mimer.register(XMLtoDict.fromstring, ('text/xml',))
+Mimer.register(lambda *a: None, ('text/xml',))
 
 class JSONEmitter(Emitter):
     """
